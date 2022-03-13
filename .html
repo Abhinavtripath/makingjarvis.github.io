@@ -1,0 +1,300 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Your own Artificial Itelligence</title>
+    <style>
+        body {
+          background:  #0c85c2;
+          margin: 0;
+        }
+  
+        #backgroundImage {
+          border: none;
+          height: 100%;
+          pointer-events: none;
+          position: fixed;
+          top: 0;
+          visibility: hidden;
+          width: 100%;
+        }
+  
+        [show-background-image] #backgroundImage {
+          visibility: visible;
+        }
+      </style>
+</head>
+<body>
+   
+
+    <center>
+        <h1>
+        
+         <u>
+            PROJECT - ARTIFICIAL INTELLIGENCE
+        </u>
+          </h1>
+
+          <img src="jarvis.jpg" alt="jarvis">
+         
+          <br>
+          <br>
+          <br>
+          <br>
+           <h2>
+               <u>
+               What is jarvis
+               </u>
+           </h2>
+          <h3>
+              Have you listen the name of Iron Man. If yes you definetly know the name of jarvis<br>It is a artificial intelligence of Iron man and You will be able to make this artificial intelligence through python.<br>
+              1. You have to make command that is able to talk <br>
+              2. You have to make the Program that could convert your voice into text <br>
+              3. You have to feed the command that you will have to tell and in reply what it will tell <br> <br> <br>
+
+
+          </h3>
+
+          <h2>
+              <u>
+                  Modules to import
+              </u>
+
+          </h2>
+
+          <h3>
+              <b>
+                  1. PYTTSX3 <br>
+              </b>
+              To install this module go to the terminal and type <b>[pip install pyttsx3]</b>  <br> <br>
+
+
+          </h3>
+           <h3>
+              <b>
+                  2. SPEECH RECOGNISITION<br>
+              </b>
+              To install this module go to the terminal and type <b>[pip install speech recognisition]</b> <br> <br>
+               </h3>
+
+               <h3>
+                 import pyttsx3 <br>
+                import speech_recognition as sr<br>
+                assistant = pyttsx3.init('sapi5')<br>
+                voices = assistant.getProperty('voices')<br>
+                assistant.setProperty('voices' , voices[1].id)<br>
+                def speak(audio):<br>
+                print("  ")<br>
+                assistant.say(audio)<br>
+                print("  ")<br>
+                assistant.runAndWait()
+  <br><br>
+               </h3>
+
+               <h2>
+                   <u>
+                   By this Process computer can speak easily , Now lets move to Listening function</u> <br> <br> <br>
+               </h2>
+
+               <h3>
+                def takecommand():<br>
+                r = sr.Recognizer()<br>
+                with sr.Microphone() as source:<br>
+                    print("Listening....")<br>
+                    r.pause_threshold = 1<br>
+                    audio = r.listen(source)<br>
+                try:<br>
+                 print("Recognizing....")<br>
+                 query = r.recognize_google(audio, language='en-in')<br>
+                 print(f"you said: {query}\n")<br>
+                except Exception as e:<br>
+                  print(e)<br>
+                  return "None"<br>
+                return query<br>
+               </h3>
+      <h2>
+          <u>
+          Now move to give command </u> <br>
+      </h2>
+         <h3>
+            while True:<br>
+            speech = takecommand().lower()<br><br>
+
+            <h2><u>
+                Hello in command 
+                </u>
+            </h2>
+
+            if "hello" in speech:<br>
+                speak("Hello sir")<br><br><br>
+
+                <h2>
+                    <u>
+                        Time in command
+                    </u>
+                </h2>
+            
+            if "the time" in speech:<br>
+                strTime = datetime.datetime.now() <br>
+                strftime("%H,%M,%S")<br>
+                speak(f"Sir the time is {strTime}")<br><br><br>
+
+                <h2>
+                    <u>
+                        Wikipedia in command
+                    </u>
+                </h2>
+        
+            
+            if 'wikipedia' in speech:<br>
+                speak('searching wikipedia')<br>
+                speech = speech.replace("wikipedia" , "")<br>
+                results = wikipedia.summary(speech , sentences=2)<br>
+                speak("According to wikipedia")<br>
+                speak(results)<br>
+                print(results)<br><br><br><br>
+
+                <h2>
+                    <u>
+                        Search google command
+                    </u>
+                </h2>
+            if "open google" in speech:<br>
+              
+                            webbrowser.open("www.google.com")<br>
+                            speak("Opened sir")<br><br><br>
+                       
+        
+           <h2>
+               <u>
+                   Exit in command
+               </u>
+           </h2>
+            
+            if "exit" in speech:<br>
+                speak("OK! sir you can call me anytime")<br>
+                break<br> <br> <br> <br><br>
+         </h3>
+
+
+        <h2>
+            <u>
+                Now sum up all the things
+            </u>
+        </h2>
+        <h3>
+            import datetimeimport datetime<br>
+            from email.mime import audio<br>
+            
+            
+            from logging import exception<br>
+            from time import strftime<br>
+            import webbrowser<br>
+            
+            import wikipedia<br>
+            
+            
+            
+            
+            import pyttsx3<br>
+            import speech_recognition as sr<br>
+            assistant = pyttsx3.init('sapi5')<br>
+            voices = assistant.getProperty('voices')<br>
+            assistant.setProperty('voices' , voices[1].id)<br>
+            
+            def speak(audio):<br>
+                print("  ")<br>
+                assistant.say(audio)<br>
+                print("  ")<br>
+                assistant.runAndWait()<br><br><br>
+            
+            
+            
+            
+            
+            
+            def takecommand():<br>
+                r = sr.Recognizer()<br>
+                with sr.Microphone() as source:<br>
+                    print("Listening....")<br>
+                    r.pause_threshold = 1<br>
+                    audio = r.listen(source)<br>
+                try:<br>
+                 print("Recognizing....")<br>
+                 query = r.recognize_google(audio, language='en-in')<br>
+                 print(f"you said: {query}\n")<br>
+                except Exception as e:<br>
+                  print(e)<br>
+                  return "None"<br>
+                return query<br><br><br>
+            
+            
+            
+            
+                
+            while True:<br>
+                speech = takecommand().lower()<br>
+                if "hello" in speech:<br>
+                    speak("Hello sir")<br><br><br>
+                
+                if "the time" in speech:<br>
+                    strTime = datetime.datetime.now() <br>
+                    strftime("%H,%M,%S")<br>
+                    speak(f"Sir the time is {strTime}")<br><br><br>
+            
+                
+                if 'wikipedia' in speech:<br>
+                    speak('searching wikipedia')<br>
+                    speech = speech.replace("wikipedia" , "")<br>
+                    results = wikipedia.summary(speech , sentences=2)<br>
+                    speak("According to wikipedia")<br>
+                    speak(results)<br>
+                    print(results)<br><br><br>
+                if "open google" in speech:<br>
+                  
+                                webbrowser.open("www.google.com")<br>
+                                speak("Opened sir")<br><br><br>
+                           
+            
+               
+                
+                if "exit" in speech:<br>
+                    speak("OK! sir you can call me anytime")<br>
+                    break<br><br><br>
+               
+            
+                
+                
+            
+                
+                
+                
+                
+               
+                
+            
+                 
+                
+            
+                 
+            
+                            
+            
+            
+            
+
+                
+
+
+
+        </h3>
+              
+
+
+
+    </center>
+  
+    
+</body>
+</html>
